@@ -115,14 +115,14 @@ const VoiceCommands = ({ setData, data, setOpen }) => {
         };
         const formattedMonth = monthNames[month.toLowerCase()];
         const date = `${year}-${formattedMonth}-${day}`;
-        setData({day: date });
+        setData(prevData=>({...prevData,day: date }));
         console.log(`Día seleccionado: ${date}`);
     };
 
     // Manejar la hora de la reserva
     const handleTime = (hour, minute) => {
         const time = `${hour}:${minute}`;
-        setData({  hour: time });
+        setData(prevData=>({...prevData,  hour: time }));
         console.log(`Hora seleccionada: ${time}`);
     };
 
@@ -134,7 +134,7 @@ const VoiceCommands = ({ setData, data, setOpen }) => {
 
     //Manejar el nombre de la reserva
     const handleName=(name)=>{
-        setData({ name: name });
+        setData((prevData)=>({...prevData, name: name }));
         console.log(`Reserva a nombre de ${name} `);
     }
 
